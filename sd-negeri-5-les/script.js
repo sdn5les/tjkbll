@@ -1,21 +1,37 @@
 const menuBtn = document.getElementById("menuBtn");
 const navLinks = document.getElementById("navLinks");
+const navItems = document.querySelectorAll(".nav-links a");
+const searchForm = document.querySelector(".search-box");
+const searchInput = document.getElementById("searchInput");
 
-menuBtn.addEventListener("click", function () {
-  navLinks.classList.toggle("show");
-
-  if (navLinks.classList.contains("show")) {
-    menuBtn.textContent = "Tutup";
-  } else {
-    menuBtn.textContent = "Menu";
-  }
-});
-
-const links = document.querySelectorAll(".nav-links a");
-
-links.forEach(function (link) {
-  link.addEventListener("click", function () {
-    navLinks.classList.remove("show");
-    menuBtn.textContent = "Menu";
+if (menuBtn && navLinks) {
+  menuBtn.addEventListener("click", function () {
+    const isOpen = navLinks.classList.toggle("show");
+    menuBtn.textContent = isOpen ? "Tutup" : "Menu";
+    menuBtn.setAttribute("aria-expanded", String(isOpen));
   });
-});
+
+  navItems.forEach(function (item) {
+    item.addEventListener("click", function () {
+      navLinks.classList.remove("show");
+      menuBtn.textContent = "Menu";
+      menuBtn.setAttribute("aria-expanded", "false");
+    });
+  });
+}
+
+if (searchForm && searchInput) {
+  searchForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const keyword = searchInput.value.trim().toLowerCase();
+    const posts = document.querySelectorAll(".post-card");
+
+    posts.forEach(function (post) {
+      const text = post.textContent.toLowerCase();
+      post.hidden = keyword.length > 0 && !text.includes(keyword);
+    });
+
+    document.getElementById("berita").scrollIntoView({ behavior: "smooth" });
+  });
+}
