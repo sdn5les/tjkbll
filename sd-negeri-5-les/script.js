@@ -22,6 +22,12 @@ if (menuBtn && navLinks) {
 
 if (searchForm && searchInput) {
   searchForm.addEventListener("submit", function (event) {
+    const beritaSection = document.getElementById("berita");
+
+    if (!beritaSection) {
+      return;
+    }
+
     event.preventDefault();
 
     const keyword = searchInput.value.trim().toLowerCase();
@@ -32,6 +38,6 @@ if (searchForm && searchInput) {
       post.hidden = keyword.length > 0 && !text.includes(keyword);
     });
 
-    document.getElementById("berita").scrollIntoView({ behavior: "smooth" });
+    beritaSection.scrollIntoView({ behavior: "smooth" });
   });
 }
