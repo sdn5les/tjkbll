@@ -189,11 +189,10 @@ a{
 }
 
 .page-hero{
-  background:
-    linear-gradient(135deg,rgba(0,42,18,.9),rgba(0,175,72,.76),rgba(0,255,102,.48)),
-    url("assets/foto-sekolah.jpg") center/cover;
+  background:url("assets/foto-sekolah.jpg") center/cover;
   color:#fff;
   padding:70px 0;
+  text-shadow:0 2px 14px rgba(0,0,0,.82);
 }
 
 .page-hero h1{
@@ -268,9 +267,7 @@ a{
 .principal-photo{
   position:relative;
   overflow:hidden;
-  background:
-    linear-gradient(135deg,rgba(0,42,18,.9),rgba(0,175,72,.72),rgba(0,255,102,.52)),
-    repeating-linear-gradient(45deg,rgba(255,255,255,.2) 0 12px,rgba(255,255,255,.06) 12px 24px);
+  background:rgb(240, 244, 241);
   background-size:cover;
   background-position:center;
 }
@@ -281,14 +278,12 @@ a{
   content:"";
   position:absolute;
   inset:auto 0 0;
-  height:42%;
-  background:linear-gradient(180deg,transparent,rgba(16,58,36,.8));
+  height:0;
+  background:none;
 }
 
 .school-visual{
-  background:
-    linear-gradient(135deg,rgba(0,42,18,.5),rgba(0,175,72,.28),rgba(0,255,102,.12)),
-    url("assets/foto-sekolah.jpg") center/cover;
+  background:url("assets/foto-sekolah.jpg") center/cover;
 }
 
 .school-visual img{
@@ -469,27 +464,19 @@ a{
 }
 
 .thumb-literasi{
-  background:
-    linear-gradient(135deg,rgba(0,42,18,.68),rgba(0,255,102,.2)),
-    url("assets/WhatsApp Image 2026-07-09 at 18.01.29.jpeg") center/cover;
+  background:url("assets/WhatsApp Image 2026-07-09 at 18.01.29.jpeg") center/cover;
 }
 
 .thumb-prestasi{
-  background:
-    linear-gradient(135deg,rgba(0,115,44,.62),rgba(245,202,65,.16)),
-    url("assets/WhatsApp Image 2026-07-09 at 18.01.30.jpeg") center/cover;
+  background:url("assets/WhatsApp Image 2026-07-09 at 18.01.30.jpeg") center/cover;
 }
 
 .thumb-sehat{
-  background:
-    linear-gradient(135deg,rgba(0,175,72,.58),rgba(178,255,204,.18)),
-    url("assets/WhatsApp Image 2026-07-09 at 18.01.31.jpg") center/cover;
+  background:url("assets/WhatsApp Image 2026-07-09 at 18.01.31.jpg") center/cover;
 }
 
 .thumb-upacara{
-  background:
-    linear-gradient(135deg,rgba(0,42,18,.62),rgba(0,255,102,.18)),
-    url("assets/WhatsApp Image 2026-07-09 at 18.01.310.jpeg") center/cover;
+  background:url("assets/WhatsApp Image 2026-07-09 at 18.01.310.jpeg") center/cover;
 }
 
 .post-body h3{
@@ -678,10 +665,72 @@ a{
   z-index:1;
   color:#fff;
   font-weight:950;
+  text-shadow:0 2px 10px rgba(0,0,0,.72);
 }
 
 .full-gallery{
   grid-template-columns:repeat(3,1fr);
+}
+
+.gallery-collection{
+  display:grid;
+  gap:38px;
+  padding:38px 0 48px;
+}
+
+.gallery-category{
+  border-top:3px solid var(--green-700);
+  padding-top:18px;
+}
+
+.category-heading{
+  margin-bottom:18px;
+}
+
+.category-heading h2{
+  color:var(--green-950);
+  font-size:28px;
+  line-height:1.2;
+  margin-top:9px;
+}
+
+.category-heading p{
+  color:var(--muted);
+  margin-top:6px;
+}
+
+.photo-grid{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:16px;
+}
+
+.photo-card{
+  overflow:hidden;
+  border:1px solid var(--line);
+  border-radius:8px;
+  background:#fff;
+}
+
+.photo-card a{
+  display:block;
+  aspect-ratio:4 / 3;
+  background:rgb(240,244,241);
+}
+
+.photo-card img,
+.post-thumb img{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+}
+
+.photo-card figcaption{
+  color:var(--green-950);
+  font-size:14px;
+  font-weight:850;
+  padding:10px 12px;
 }
 
 .announcement-page li{
@@ -751,7 +800,8 @@ a{
   }
 
   .program-grid,
-  .gallery-grid{
+  .gallery-grid,
+  .photo-grid{
     grid-template-columns:repeat(2,1fr);
   }
 
@@ -831,7 +881,8 @@ a{
   }
 
   .program-grid,
-  .gallery-grid{
+  .gallery-grid,
+  .photo-grid{
     grid-template-columns:1fr;
   }
 }
